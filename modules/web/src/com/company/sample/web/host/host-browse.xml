@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.company.sample.web.host.HostBrowse"
+        focusComponent="hostsTable"
+        lookupComponent="hostsTable"
+        messagesPack="com.company.sample.web.host">
+    <dsContext>
+        <groupDatasource id="hostsDs"
+                         class="com.company.sample.entity.Host"
+                         view="_local">
+            <query>
+                <![CDATA[select e from sample$Host e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="hostsTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="hostsTable"
+                datasource="hostsDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="hostsTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="name"/>
+                <column id="ip_address"/>
+            </columns>
+            <rows datasource="hostsDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="hostsTable.create"/>
+                <button id="editBtn"
+                        action="hostsTable.edit"/>
+                <button id="removeBtn"
+                        action="hostsTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

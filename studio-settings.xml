@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<studio>
+    <dbScripts>
+        <excludes>
+            <postgres>
+                <item name="170715-2-updateHost.sql">
+                    <![CDATA[alter table SAMPLE_HOST drop column IP_ADDRESS cascade ;
+alter table SAMPLE_HOST add column IP_ADDRESS varchar(255) ;]]>
+                </item>
+            </postgres>
+        </excludes>
+    </dbScripts>
+</studio>

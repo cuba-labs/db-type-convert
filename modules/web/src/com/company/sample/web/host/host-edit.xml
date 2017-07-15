@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.company.sample.web.host.HostEdit"
+        datasource="hostDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.company.sample.web.host">
+    <dsContext>
+        <datasource id="hostDs"
+                    class="com.company.sample.entity.Host"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="hostDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="ip_address"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
